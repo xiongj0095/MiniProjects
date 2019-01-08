@@ -1,0 +1,31 @@
+Bard's test cases for pollard
+
+Question 1:
+
+N = 26819017
+e = 7889381
+
+Question 2:
+
+N = 118147313
+e = 101
+
+Question 3:
+
+N = 151657621
+e = 34476481
+
+Question 4:
+
+N = 9673421
+e = 101
+
+Question 5:
+
+N = 159466303
+e = 41105339
+
+Question 6:
+
+N = 40612127
+e = 28121549

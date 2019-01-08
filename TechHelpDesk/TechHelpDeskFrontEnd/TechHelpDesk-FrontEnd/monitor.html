@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="monitor.css">
+<script src="monitor.js"></script>
+<meta charset="utf-8">
+<title text-alignment>Ticket Monitor</title>
+</head>
+
+<body>
+<div class="container" id="monitorContent">
+
+<header>
+   <h1>Help Desk</h1>
+   <h2>Ticket Form</h2>
+</header>
+  
+<nav>
+  <ul>
+  	<h3>Tools</h3>
+    <li><button onclick="return show('ticketContent','monitorContent');">Create Ticket</button></li>
+    <li><button>Tool 2</button></li>
+    <li><button>Tool 3</button></li>  
+</ul>
+</nav>
+
+<article>
+  <h1>Ticket Monitor</h1>
+  <input type="button" value="Add Row" onclick="addRow('dataTable')" />
+
+	<input type="button" value="Delete Row" onclick="deleteRow('dataTable')" />
+
+	<table id="dataTable" width="600px" align="center" border="1">
+		<tr>
+			<td><button>Edit</button></td>
+			<td> TicketID0 </td>
+			<td> Customer Name </td>
+            <td> Description </td>
+            <td> Date Created </td>
+		</tr>
+	</table>
+</article>
+
+<footer>Software Engineering Project 1 Prototype, Technology Help Desk</footer>
+
+</div>
+
+<div class="container" id="ticketContent" style="display:none">
+            <header>
+                <h1>Help Desk</h1>
+                <h2>Ticket Form</h2>
+            </header>
+            <nav class="nav">
+                <ul>
+                <li><button onclick="return show('monitorContent','ticketContent');">Ticket Monitor</button></li>
+                <form action="tempPHPDoc.php">
+                	<h3>Information</h3>
+					<li>Title:<br>
+                    <input type="text" name="title"><br></li>
+                    <li>Date:<br>
+                    <input type="text" name="date"><br></li>
+                    <li>Technician:<br>
+                    <input type="text" name="technotes"><br></li>
+                    <li>Customer:<br>
+                    <input type="text" name="custnotes"><br></li>
+                     <li>Notes:<br></li>
+                    <textarea name="notes" cols="21" rows="5"></textarea><br>
+                    <label for="hardwareCheck">Hardware taken in?</label>
+                    <input id="hardwareCheck" type="checkbox" value="hardwareCheck"><br>
+                      <select name="answer" id="hardwareList">
+                        <option value="hardware1">hardware1</option>
+                        <option value="hardware2">hardware2</option>
+                        <option value="hardware3">hardware3</option>
+                        <option value="hardware4">hardware4</option>
+                        <option value="hardware5">hardware5</option>
+                        <option value="hardware6">hardware6</option>
+                        <option value="hardware7">hardware7</option>
+                        <option value="hardware8">hardware8</option>
+                      </select>
+                </form>
+                </ul>
+            </nav>
+                <article class="article">
+                	<form action="/techhelpdesk-backend/php/add_ticket.php" method="post">
+                    <h1>Problem</h1>
+                    <textarea name="problem" cols="60" rows="8"></textarea>
+                    <h1>Solution</h1>
+                    <textarea name="solution" cols="60" rows="8"></textarea>
+                    <br>
+                    <input type="submit" class="open" value="Open">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="submit" class="close" value="Close"><br>
+                    </form>
+                </article>
+            
+            <footer>Software Engineering Project 1 Prototype, Technology Help Desk</footer>
+        </div>
+
+
+</body>
+</html>

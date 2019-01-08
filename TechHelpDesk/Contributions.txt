@@ -1,0 +1,7 @@
+Team: 
+	Blaine Herro, 
+	Alex Jenness, 
+	Issac Boyd,
+	Joey Xiong
+Date: Spring 2017
+Class: CS448 Software Engineer

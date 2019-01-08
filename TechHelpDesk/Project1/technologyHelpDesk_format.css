@@ -1,0 +1,49 @@
+@charset "utf-8";
+@font-face{
+   font-family:butcherman-caps; 
+ }
+ 
+ /* CSS Document */
+ 
+/* selector */
+h1{font-weight:bold; color:#FFFFFF; font-size:38px}
+h2{font-weight:bold; font-size:30px}
+h3{font-weight:bold; font-size:30px}
+body, button, input, label, select, td, textarea {
+	font-family: Helvetica,Arial,sans-serif;
+	font-size: 14px;
+}
+
+/* classes */
+.span0{color:#FFFFFF}
+.span1{ font-weight:bold; font-size:24px; }
+.span2{ font-size:18px}
+.spanLightBlueText{ color:#007CFF}
+
+.background{margin:0px; padding:0px; direction:ltr; line-height:1.34; unicode-bidi:embed}
+.topBar{height:100px; min-width:1000px}
+.topBar2{margin-top:0px; margin-bottom:0px; margin-left:auto; margin-right:auto; padding-top:13px; width:1000px}
+.middleBar{height:500px; mid-width:1000px}
+.paddingMiddle{padding-top:20px; padding-bottom:20px}
+.bottomBar{height:50px; mid-width:1000px}
+
+.floatLeft{float:left}
+.floatRight{float:right}
+
+.registerForm{width:400px; padding:0px; margin:0px; margin-top:-30px}
+.registerTextBox{size:50px; font-size:16px; border:thin; border-radius:4px; width:100%; padding-bottom:10px; padding-top:10px; margin-top:5px; margin-right:30px}
+.registerTextBoxTop{margin-top:-20px}
+.textMargin{margin-top:-15px}
+.textMargin2{margin-bottom:15px}
+
+.registerSubmitButton{size:50px; font-size:16px; border:solid; border-radius:4px; background:#4CAF50; padding:10px; font-weight:bold; width:75%; color:#FFFFFF; border-color:transparent; margin-top:10px}
+.registerSubmitButton:hover{background-color:#66BC69}
+.returnHomePageButton{font-size:16px; border:solid; border-radius:4px; background:#4CAF50; padding:5px; font-weight:bold; color:#FFFFFF; border-color:transparent; margin-top:10px; width:200px}
+.returnHomePageButton:hover{background-color:#66BC69}
+
+.footerMessage{color:#000000; text-align:center}
+
+/* id */
+#mainBar{background-color:#000000}
+#bottomBar{background-color:#FFFFFF}
+#secondaryBackGround{margin:0px; background-color:#E9F1FC; padding:0px; position:relative; min-height:90; background-size:auto}

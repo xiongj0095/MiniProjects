@@ -1,0 +1,119 @@
+<?php
+    session_start();
+    if(!isset($_SESSION["username"])) {
+        echo '<script>document.write("You are not logged in.\n")</script>';
+        echo '<meta http-equiv="refresh" content="0; url=/TechHelpDesk-FrontEnd/loginScreen.html" />';
+    }
+?>
+<!doctype html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="customer.css">
+<script src="customer.js"></script>
+<meta charset="utf-8">
+<title text-alignment>Ticket Monitor</title>
+</head>
+
+<body>
+<div class="container" id="monitorContent">
+
+<header>
+   <h1>Help Desk</h1>
+   <h2>Customer Ticket System</h2>
+   <?php include('../techhelpdesk-backend/php/cookie_isset.php');?>
+</header>
+  
+<nav>
+  <ul>
+  	<h3>Tools</h3>
+    <li><button onclick="return show('ticketContent','monitorContent');">Create Ticket</button></li>
+    <li><input type="button" onclick="location.href='/techhelpdesk-backend/php/logout.php';" value="Logout" /></li> 
+</ul>
+</nav>
+
+<article>
+  <h1>My Tickets </h1>
+<table id="dataTable" width="600px" align="center" border="1">
+		<tr>
+			<td> TicketID </td>
+            <td> Title </td>
+			<td> Customer Name </td>
+            <td> Description </td>
+            <td> Date Created </td>
+		</tr>
+    <?php
+        include('../techhelpdesk-backend/php/includes/dbconnect.php');
+        global $db;
+        $userid = $_SESSION["userID"];
+        # select title, date, custnotes, technotes from tickets join ticket_assignments on ticket_assignments.ticketid = tickets.id where ticket_assignments.userid = 5;
+        $result = mysqli_query($db,"SELECT tickets.id,`title`,`date`, `custnotes`, `technotes` FROM `tickets` JOIN ticket_assignments on ticket_assignments.ticketid = tickets.id WHERE ticket_assignments.userid = '$userid'");
+        if (mysqli_num_rows($result) > 0) {
+            while($row = mysqli_fetch_assoc($result)) {
+                echo '<tr>';
+                echo '<td>'. $row["id"] . '</td>';
+                echo '<td>'. $row["title"] . '</td>';
+                echo '<td>'. $_SESSION["username"] . '</td>';
+                echo '<td>'. $row["custnotes"] . '</td>';
+                echo '<td>'. $row["date"] . '</td>';
+                echo '</tr>';
+            }
+        }
+       
+
+    ?>
+
+
+	</table>
+</article>
+
+<footer>Software Engineering Project 1 Prototype, Technology Help Desk</footer>
+
+</div>
+
+<div class="container" id="ticketContent" style="display:none">
+            <header>
+                <h1>Help Desk</h1>
+                <h2>Customer Ticket System</h2>
+            </header>
+            <form action="/techhelpdesk-backend/php/add_ticket.php" method="post">
+            <nav class="nav">
+            
+                <ul>
+                <li><button onclick="return show('monitorContent','ticketContent');">My Tickets</button></li>
+                
+                	<h3>Information</h3>
+                    <li>Title:<br>
+                    <input type="text" name="title"><br></li>
+                    <li>Date:<br>
+                    <input type="text" name="date" id="date" readonly="readonly"><br></li>
+                    <script>document.getElementById("date").value = (new Date()).toISOString().substring(0, 10);</script>
+                    <li>Technician:<br>
+                    <input type="text" name="technician" readonly="readonly" placeholder="To be determined."><br></li>
+                    <label for="hardwareCheck">Hardware taken in?</label>
+                    <input id="hardwareCheck" type="checkbox" value="hardwareCheck"><br>
+                      <select name="answer" id="hardwareList">
+                        <option value="hardware1">hardware1</option>
+                        <option value="hardware2">hardware2</option>
+                        <option value="hardware3">hardware3</option>
+                        <option value="hardware4">hardware4</option>
+                        <option value="hardware5">hardware5</option>
+                        <option value="hardware6">hardware6</option>
+                        <option value="hardware7">hardware7</option>
+                        <option value="hardware8">hardware8</option>
+                      </select>
+                </ul>
+            </nav>
+                <article class="article">
+
+                    <h1> Ticket Form </h1>
+                    <h2>Notes</h2>
+                    <textarea name="custnotes" cols="60" rows="8"></textarea>
+                    <input type="submit" class="open" value="Open New Ticket">
+                </article>
+               </form>
+            <footer>Software Engineering Project 1 Prototype, Technology Help Desk</footer>
+        </div>
+
+
+</body>
+</html>
