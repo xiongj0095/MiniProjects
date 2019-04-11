@@ -1,5 +1,0 @@
-AddType application/x-httpd-php .php .html .htm
-
-<FilesMatch "\.(htm|html)$">
-	Set Handler application/x-httpd-php
-</FilesMatch>
